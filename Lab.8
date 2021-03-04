@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+struct Employee {
+	string name; // имя студента.
+	int age;// возраст студента.
+	float salary;// стипендия студента.
+};
+
+struct Firm { // факультеты студентов.
+	Employee programming;
+	Employee language;
+	Employee  business;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	int a;
+	cout << "ВЫберите факультет: " << endl <<
+		"1.Факультет программирования" << endl <<
+		"2.Факультет языковой" << endl <<
+		"3.Фаукультет бизнесса" << endl;
+	Firm RosNou;
+	RosNou.programming.name = "Андрей";
+	RosNou.programming.age = 18;
+	RosNou.programming.salary = 23.4256;
+	RosNou.language.name = "Данил";
+	RosNou.language.age = 19;
+	RosNou.language.salary = 0;
+	RosNou.business.name = "Егор";
+	RosNou.business.age = 18;
+	RosNou.business.salary = 18.2345;
+	cin >> a;
+	switch (a) {
+	case 1:
+		cout << "Студент факультета программирования: " << endl << "Имя: " << RosNou.programming.name << endl <<
+			"Возраст: " << RosNou.programming.age << endl << "Стипендия: " << RosNou.programming.salary << endl;
+		break;
+	case 2:
+		cout << "Студент Языкового факультета: " << endl << "Имя: " << RosNou.language.name << endl <<
+			"Возраст: " << RosNou.language.age << endl << "Стипендия: " << RosNou.language.salary << endl;
+		break;
+	case 3:
+		cout << "Студент Бизнесс факультета: " << endl << "Имя: " << RosNou.business.name << endl <<
+			"Возраст: " << RosNou.business.age << endl << "Стипендия: " << RosNou.business.salary << endl;
+		break;
+	default:
+		cout << "Ошибка,Пункт меня отсутствует!" << endl << "Повторите попытку снова" << endl;
+	}
+}
