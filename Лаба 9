@@ -1,0 +1,63 @@
+#include <iostream> 
+#include<string> 
+#include<fstream> 
+using namespace std; 
+
+class Worker 
+{ 
+public: 
+string name; 
+int stage; 
+int salaryHour; 
+int hours; 
+int salary; 
+int premy; 
+void cinwork() { 
+cout « "Enter worker name: " ; 
+cin » name; 
+cout « "Enter worker experience(years): " ; 
+cin » stage; 
+cout « "Enter worker salary per hour: " ; 
+cin » salaryHour; 
+cout « "Enter worker work hours: " ; 
+cin » hours; 
+} 
+void salaryForAllTime() { 
+salary = salaryHour*hours; 
+if (stage < 1) premy = 0; 
+if (stage >= 1 and stage <= 3) premy = salary*0.05; 
+if (stage > 3 and stage <= 5) premy = salary*0.08; 
+if (stage > 5) premy = salary*0.15; 
+} 
+void coutwork() 
+{ 
+cout « "____________________________ " « endl; 
+cout « "Name: "« name « endl; 
+cout « "Experience: " « stage « endl; 
+cout « "Salary per hour: " « salaryHour « endl; 
+cout « "All hours: " « hours « endl; 
+cout « "Salary for all time: " « salary « endl; 
+cout « "Premy :" « premy « endl; 
+cout « "____________________________ " « endl; 
+} 
+void file() 
+{ 
+ofstream fout; 
+fout.open("filecpp.txt", ios_base::app); 
+fout « "Name: " « name « "\nExperience: " « stage « "\nSalary per hour: " « salaryHour « "\nAll hours: " « hours « "\nSalary for all time: " « salary « "\nPremy :" « premy « "\n"; 
+fout « endl; 
+fout.close(); 
+cout « "Information was wrotten in filecpp.txt" « endl; 
+} 
+
+
+};
+int main() 
+{ 
+setlocale(LC_ALL, "RU"); 
+Worker firstWorker; 
+firstWorker.cinwork(); 
+firstWorker.salaryForAllTime(); 
+firstWorker.coutwork(); 
+firstWorker.file(); 
+}
